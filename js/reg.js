@@ -34,8 +34,19 @@ function handleSubmit(event) {
 
       containerError.classList.remove('hiden');
       containerError.classList.add('list-error-tue');
-      containerError.innerHTML =`<li class="error-message">Авторизація успішна!</li>`;
+      containerError.innerHTML =`<li class="error-message">Реєстрація успішна!</li>`;
 
+      const lUserData = {email: emailInput.value, token: response.data.token };    
+
+      axios
+      .patch("https://solar-energy-serv.onrender.com/luser", lUserData)
+      .then((response) => {
+        console.log("Updated data: ", response.data);
+      })
+      .catch((error) => {
+        console.error("Error updating user: ", error);
+      });
+      
     }catch(err){
       console.log(err);
     }
