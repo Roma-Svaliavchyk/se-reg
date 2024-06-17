@@ -36,6 +36,7 @@ function handleSubmit(event) {
       containerError.classList.add('list-error-tue');
       containerError.innerHTML =`<li class="error-message">Реєстрація успішна!</li>`;
 
+
       const lUserData = {email: emailInput.value, token: response.data.token };    
 
       axios
@@ -46,7 +47,7 @@ function handleSubmit(event) {
       .catch((error) => {
         console.error("Error updating user: ", error);
       });
-      
+
     }catch(err){
       console.log(err);
     }
